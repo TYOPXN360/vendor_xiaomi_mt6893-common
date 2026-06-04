@@ -153,7 +153,6 @@ PRODUCT_COPY_FILES += \
     vendor/xiaomi/mt6893-common/proprietary/vendor/etc/init/tee-supplicant.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/tee-supplicant.rc \
     vendor/xiaomi/mt6893-common/proprietary/vendor/etc/init/tetheroffloadservice.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/tetheroffloadservice.rc \
     vendor/xiaomi/mt6893-common/proprietary/vendor/etc/init/vendor.dolby.hardware.dms@2.0-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/vendor.dolby.hardware.dms@2.0-service.rc \
-    vendor/xiaomi/mt6893-common/proprietary/vendor/etc/init/vendor.dolby.media.c2@1.0-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/vendor.dolby.media.c2@1.0-service.rc \
     vendor/xiaomi/mt6893-common/proprietary/vendor/etc/init/vendor.mediatek.hardware.mmagent@1.1-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/vendor.mediatek.hardware.mmagent@1.1-service.rc \
     vendor/xiaomi/mt6893-common/proprietary/vendor/etc/init/vendor.mediatek.hardware.mms@1.6-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/vendor.mediatek.hardware.mms@1.6-service.rc \
     vendor/xiaomi/mt6893-common/proprietary/vendor/etc/init/vendor.mediatek.hardware.nvram@1.1-sevice.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/vendor.mediatek.hardware.nvram@1.1-sevice.rc \
@@ -240,7 +239,7 @@ PRODUCT_PACKAGES += \
     libconnfem \
     libcustom_nvram \
     libdapparamstorage \
-    libdlbpreg \
+    libdeccfg \
     libfile_op \
     libgz_gp_client \
     libgz_uree \
@@ -254,7 +253,9 @@ PRODUCT_PACKAGES += \
     libmtkrillog \
     libnvram \
     libnvram_sec \
-    liboem_specific \
+    libstagefright_soft_ac4dec \
+    libstagefright_soft_ddpdec \
+    libstagefrightdolby \
     libteecli \
     libteeclientjni_isee \
     libteeclientjni_isee@1.1 \
@@ -262,9 +263,9 @@ PRODUCT_PACKAGES += \
     libthha \
     libvpu \
     libmtk_drvb \
-    libdlbvol \
     libswdap \
     libswgamedap \
+    libswvqe \
     vendor.dolby.hardware.dms@2.0 \
     vendor.mediatek.hardware.nvram@1.0 \
     vendor.mediatek.hardware.nvram@1.1 \
@@ -275,7 +276,6 @@ PRODUCT_PACKAGES += \
     audio.r_submix.mt6893 \
     sound_trigger.primary.default \
     libAVCSecureVencCA \
-    libHEVCdec_sa.ca7.android \
     libMtkSpeechEnh \
     lib_iir \
     lib_speech_enh \
@@ -294,11 +294,6 @@ PRODUCT_PACKAGES += \
     libbessound_hd_mtk_vendor \
     libblisrc32_vendor \
     libcvsd_mtk \
-    libh264dec_customize \
-    libh264dec_sa.ca7 \
-    libh264enc_sa.ca7 \
-    libhevce_sb.ca7.android \
-    libmp4enc_sa.ca7 \
     libmsbc_mtk \
     libmtklimiter_vendor \
     libmtkshifter_vendor \
@@ -315,9 +310,6 @@ PRODUCT_PACKAGES += \
     libvow_ap_test_ha \
     libvow_ap_test_hh \
     libvow_ap_test_nn \
-    libvp8dec_sa.ca7 \
-    libvp8enc_sa.ca7 \
-    libvp9dec_sa.ca7 \
     libvpud_vcodec \
     vendor.mediatek.hardware.audio@7.1 \
     vendor.mediatek.hardware.bluetooth.audio@2.1 \
@@ -375,16 +367,18 @@ PRODUCT_PACKAGES += \
     libccci_util \
     libcmdl \
     libcmdl_ndk.mtk.vndk \
+    libcodec2_hidl@1.0-v31 \
+    libcodec2_hidl@1.1-v31 \
+    libcodec2_hidl@1.2-v31 \
+    libcodec2_hidl_plugin-v31 \
     libcodec2_mtk_c2store \
     libcodec2_mtk_vdec \
     libcodec2_mtk_venc \
-    libcodec2_soft_ac4dec \
-    libcodec2_soft_ddpdec \
-    libcodec2_store_dolby \
+    libcodec2_soft_common-v31 \
+    libcodec2_vndk-v31 \
     libcodec2_vpp_qt_plugin \
     libcodec2_vpp_rs_plugin \
     libcomposer_ext \
-    libdeccfg \
     libdlbdsservice \
     libdre \
     libforkexecwrap \
@@ -449,6 +443,8 @@ PRODUCT_PACKAGES += \
     librpc \
     libscltm \
     libsensor_custom \
+    libsfplugin_ccodec_utils-v31 \
+    libstagefright_bufferqueue_helper-v33 \
     libstorage_otp \
     libsysenv \
     libthhclient \
@@ -523,7 +519,8 @@ PRODUCT_PACKAGES += \
     gnss-mtk.xml \
     gnss@2.1-service.xml \
     manifest_android.hardware.drm@1.4-service.widevine.xml \
-    vendor.dolby.hardware.dms.xml \
+    manifest_media_c2_V1_2_default.xml \
+    manifest_vendor.dolby.hardware.dms.xml \
     bp_kmsetkey_ca \
     ccci_mdinit \
     ccci_rpcd \
@@ -542,7 +539,6 @@ PRODUCT_PACKAGES += \
     mtkfusionrild \
     tetheroffloadservice \
     vendor.dolby.hardware.dms@2.0-service \
-    vendor.dolby.media.c2@1.0-service \
     vendor.mediatek.hardware.mmagent@1.1-service \
     vendor.mediatek.hardware.mms@1.6-service \
     vendor.mediatek.hardware.nvram@1.1-service \
