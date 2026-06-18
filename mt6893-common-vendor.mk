@@ -276,6 +276,7 @@ PRODUCT_PACKAGES += \
     audio.r_submix.mt6893 \
     sound_trigger.primary.default \
     libAVCSecureVencCA \
+    libHEVCdec_sa.ca7.android \
     libMtkSpeechEnh \
     lib_iir \
     lib_speech_enh \
@@ -294,6 +295,11 @@ PRODUCT_PACKAGES += \
     libbessound_hd_mtk_vendor \
     libblisrc32_vendor \
     libcvsd_mtk \
+    libh264dec_customize \
+    libh264dec_sa.ca7 \
+    libh264enc_sa.ca7 \
+    libhevce_sb.ca7.android \
+    libmp4enc_sa.ca7 \
     libmsbc_mtk \
     libmtklimiter_vendor \
     libmtkshifter_vendor \
@@ -310,6 +316,9 @@ PRODUCT_PACKAGES += \
     libvow_ap_test_ha \
     libvow_ap_test_hh \
     libvow_ap_test_nn \
+    libvp8dec_sa.ca7 \
+    libvp8enc_sa.ca7 \
+    libvp9dec_sa.ca7 \
     libvpud_vcodec \
     vendor.mediatek.hardware.audio@7.1 \
     vendor.mediatek.hardware.bluetooth.audio@2.1 \
@@ -351,6 +360,7 @@ PRODUCT_PACKAGES += \
     libaal_key \
     libaal_mtk \
     libaalservice \
+    libadpcmdec_mtk \
     libaiselector_cust \
     libaispq \
     libappgamepq \
@@ -367,15 +377,14 @@ PRODUCT_PACKAGES += \
     libccci_util \
     libcmdl \
     libcmdl_ndk.mtk.vndk \
-    libcodec2_hidl@1.0-v31 \
-    libcodec2_hidl@1.1-v31 \
-    libcodec2_hidl@1.2-v31 \
-    libcodec2_hidl_plugin-v31 \
     libcodec2_mtk_c2store \
     libcodec2_mtk_vdec \
     libcodec2_mtk_venc \
-    libcodec2_soft_common-v31 \
-    libcodec2_vndk-v31 \
+    libcodec2_soft_mtk_alacdec \
+    libcodec2_soft_mtk_apedec \
+    libcodec2_soft_mtk_imaadpcmdec \
+    libcodec2_soft_mtk_mp3dec \
+    libcodec2_soft_mtk_msadpcmdec \
     libcodec2_vpp_qt_plugin \
     libcodec2_vpp_rs_plugin \
     libcomposer_ext \
@@ -411,6 +420,7 @@ PRODUCT_PACKAGES += \
     libmmagent \
     libmml \
     libmnetlink_v104 \
+    libmp3dec_mtk \
     libmt_isee \
     libmt_isee@1.2 \
     libmt_mitee \
@@ -443,8 +453,6 @@ PRODUCT_PACKAGES += \
     librpc \
     libscltm \
     libsensor_custom \
-    libsfplugin_ccodec_utils-v31 \
-    libstagefright_bufferqueue_helper-v33 \
     libstorage_otp \
     libsysenv \
     libthhclient \
