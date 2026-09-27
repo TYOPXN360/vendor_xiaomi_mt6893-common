@@ -583,7 +583,6 @@ PRODUCT_PACKAGES += \
     vendor_lib64_libDR_so \
     vendor_lib64_libaiselector_so \
     vendor_lib64_libdpframework_so \
-    vendor_lib64_libmnl_so \
     vendor_lib64_libmtk_drvb_so \
     vendor_lib64_libneuron_platform_vpu_so \
     vendor_lib64_libneuron_runtime_5_so \
