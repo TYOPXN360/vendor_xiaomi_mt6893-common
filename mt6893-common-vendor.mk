@@ -391,7 +391,7 @@ PRODUCT_PACKAGES += \
     libdlbdsservice \
     libdre \
     libforkexecwrap \
-    libformatter \
+    vendor_libformatter \
     libgamehdr \
     libged \
     libgf_ca \
@@ -474,7 +474,7 @@ PRODUCT_PACKAGES += \
     libDR \
     libaiselector \
     libdpframework \
-    libmnl \
+    vendor_libmnl \
     libneuron_platform.vpu \
     libneuron_runtime.5 \
     libneuron_runtime \

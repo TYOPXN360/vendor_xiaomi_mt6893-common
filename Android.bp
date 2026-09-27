@@ -4858,7 +4858,7 @@ cc_prebuilt_library_shared {
                 "proprietary/vendor/lib64/libcodec2_mtk_vdec.so",
             ],
             shared_libs: [
-                "libformatter",
+                "vendor_libformatter",
                 "libdpframework",
                 "android.hardware.graphics.bufferqueue@2.0",
                 "libui",
@@ -4907,7 +4907,7 @@ cc_prebuilt_library_shared {
                 "proprietary/vendor/lib64/libcodec2_mtk_venc.so",
             ],
             shared_libs: [
-                "libformatter",
+                "vendor_libformatter",
                 "libdpframework",
                 "android.hardware.graphics.bufferqueue@2.0",
                 "libui",
@@ -5290,7 +5290,10 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "libformatter",
+    // Renamed from "libformatter" to avoid a name collision with the AOSP
+    // system/software_defined_vehicle Rust host module, which A17 resolves
+    // first and which has no android variant.
+    name: "vendor_libformatter",
     owner: "xiaomi",
     strip: {
         none: true,
@@ -7768,7 +7771,10 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "libmnl",
+    // Renamed from "libmnl" to avoid a name collision with the AOSP
+    // external/libmnl module, which A17 now builds as a system partition
+    // module. The proprietary copy below stays in vendor.
+    name: "vendor_libmnl",
     owner: "xiaomi",
     strip: {
         none: true,
@@ -10205,7 +10211,7 @@ cc_prebuilt_binary {
                 "proprietary/vendor/bin/mnld",
             ],
             shared_libs: [
-                "libmnl",
+                "vendor_libmnl",
                 "libcurl",
                 "libcutils",
                 "libnvram",
