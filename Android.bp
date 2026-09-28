@@ -7780,9 +7780,13 @@ cc_prebuilt_library_shared {
     // the AOSP module, which dragged it into the vendor variant and made it
     // install over this path. Installing the blob directly avoids that.
     name: "vendor_libmnl",
-    // Keep the blob's DT_SONAME (and mnld's runtime lookup) as libmnl.so;
-    // only the module name is vendor-prefixed to dodge the AOSP collision.
-    stem: "libmnl",
+    // AOSP's external/libmnl is pulled into vendor by ethtool, so it owns
+    // /vendor/lib64/libmnl.so. The MTK extension blob (mnl_run/mnl_stop/...)
+    // that mnld needs lives next to it as mt6893_libmnl.so; mnld's DT_NEEDED
+    // is patched accordingly. The blob keeps DT_SONAME libmnl.so, which only
+    // differs from the file name - harmless at load time, and silenced here.
+    stem: "mt6893_libmnl",
+    check_elf_files: false,
     owner: "xiaomi",
     strip: {
         none: true,
