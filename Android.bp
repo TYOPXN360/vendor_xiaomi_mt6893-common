@@ -10216,6 +10216,11 @@ cc_prebuilt_binary {
 cc_prebuilt_binary {
     name: "mnld",
     owner: "xiaomi",
+    // mnld's DT_NEEDED points at mt6893_libmnl.so (see vendor_libmnl);
+    // soong's elf check matches NEEDED against module names, not stems, so
+    // it cannot see this pairing. The stem of vendor_libmnl produces exactly
+    // the file mnld resolves at runtime.
+    check_elf_files: false,
     target: {
         android_arm64: {
             srcs: [
