@@ -5294,6 +5294,7 @@ cc_prebuilt_library_shared {
     // system/software_defined_vehicle Rust host module, which A17 resolves
     // first and which has no android variant.
     name: "vendor_libformatter",
+    stem: "libformatter",
     owner: "xiaomi",
     strip: {
         none: true,
@@ -7779,6 +7780,9 @@ cc_prebuilt_library_shared {
     // the AOSP module, which dragged it into the vendor variant and made it
     // install over this path. Installing the blob directly avoids that.
     name: "vendor_libmnl",
+    // Keep the blob's DT_SONAME (and mnld's runtime lookup) as libmnl.so;
+    // only the module name is vendor-prefixed to dodge the AOSP collision.
+    stem: "libmnl",
     owner: "xiaomi",
     strip: {
         none: true,
