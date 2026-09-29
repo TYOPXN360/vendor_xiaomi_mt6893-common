@@ -567,8 +567,14 @@ PRODUCT_PACKAGES += \
     thermal \
     thermal_manager \
     thermalloadalgod \
-    vpud \
-    wlan_assistant
+    vpud
+
+# wlan_assistant is intentionally left to hardware/mediatek/wlan/wlan_assistant.
+# Both declare the module name "wlan_assistant", and the Xiaomi prebuilt here
+# shadows the MediaTek one, so wlan_assistant.rc never gets installed. Without
+# that rc there is no init service, the daemon never starts, the Wi-Fi NVRAM is
+# never pushed to the driver through /dev/wmtWifi, and the probe fails in
+# wlanGetEpaElnaFromNvram() with RST_FW_DL_FAIL.
 
 PRODUCT_PACKAGES += \
     vendor_bin_hw_android_hardware_media_c2@1_2-mediatek \
