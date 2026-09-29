@@ -10586,32 +10586,13 @@ cc_prebuilt_binary {
     soc_specific: true,
 }
 
-cc_prebuilt_binary {
-    name: "wlan_assistant",
-    owner: "xiaomi",
-    target: {
-        android_arm64: {
-            srcs: [
-                "proprietary/vendor/bin/wlan_assistant",
-            ],
-            shared_libs: [
-                "libc",
-                "liblog",
-                "libcutils",
-                "libnl",
-                "libc++",
-                "libm",
-                "libdl",
-            ],
-        },
-    },
-    compile_multilib: "64",
-    strip: {
-        none: true,
-    },
-    prefer: true,
-    soc_specific: true,
-}
+// The Xiaomi wlan_assistant blob is intentionally not packaged. It declares
+// the same module name as hardware/mediatek/wlan/wlan_assistant, and with
+// `prefer: true` it used to shadow that one - so the MediaTek build, which is
+// the one carrying wlan_assistant.rc, was never installed and the daemon had
+// no init service at all. Without it running the Wi-Fi NVRAM never reaches
+// the driver through /dev/wmtWifi and the probe fails in
+// wlanGetEpaElnaFromNvram() with RST_FW_DL_FAIL.
 
 install_symlink {
     name: "vendor_bin_hw_android_hardware_media_c2@1_2-mediatek",
