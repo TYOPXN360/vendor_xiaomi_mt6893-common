@@ -124,11 +124,11 @@ cc_prebuilt_library_shared {
                 "libbase",
                 "liblog",
                 "libcutils",
-                # The 64-bit blob has its DT_NEEDED repointed from libion.so to
-                # libio2.so by extract-files.py (see the note there), so the
-                # build graph has to know about that edge. The 32-bit copy is
-                # left on libion.so: nothing here runs 32-bit, and libio2 is
-                # only built for 64-bit.
+                // The 64-bit blob has its DT_NEEDED repointed from libion.so to
+                // libio2.so by extract-files.py (see the note there), so the
+                // build graph has to know about that edge. The 32-bit copy is
+                // left on libion.so: nothing here runs 32-bit, and libio2 is
+                // only built for 64-bit.
                 "libio2",
                 "libion_mtk",
                 "libc++",
