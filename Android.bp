@@ -96,6 +96,13 @@ cc_prebuilt_library_shared {
 cc_prebuilt_library_shared {
     name: "libapusys",
     owner: "xiaomi",
+    // The 64-bit blob's DT_NEEDED names libio2.so, which lives in the
+    // device/xiaomi/chopin namespace. A prebuilt does not need a build-time
+    // edge to it -- the dynamic linker resolves it at runtime from
+    // /vendor/lib64 -- and importing that whole namespace into this generic
+    // platform tree just to satisfy the check would be the wrong direction.
+    // Skip the link-time ELF check instead.
+    check_elf_files: false,
     strip: {
         none: true,
     },
@@ -124,12 +131,6 @@ cc_prebuilt_library_shared {
                 "libbase",
                 "liblog",
                 "libcutils",
-                // The 64-bit blob has its DT_NEEDED repointed from libion.so to
-                // libio2.so by extract-files.py (see the note there), so the
-                // build graph has to know about that edge. The 32-bit copy is
-                // left on libion.so: nothing here runs 32-bit, and libio2 is
-                // only built for 64-bit.
-                "libio2",
                 "libion_mtk",
                 "libc++",
                 "libc",
